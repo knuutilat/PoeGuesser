@@ -1,0 +1,55 @@
+body {
+    background-color: black;
+}
+h1 {
+    color:blanchedalmond;
+    margin:auto;
+    text-align: center;
+}
+
+.image-gallery {
+    display: flex; /* Arrange items horizontally */
+    flex-wrap: wrap; /* Allow items to wrap to multiple lines if needed */
+    list-style: none; /* Remove default bullet points */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+  }
+  
+  .image-gallery li {
+    margin: 5px; /* Add spacing between images */
+  }
+  
+  .image-gallery li img {
+    width: 100px; /* Adjust width as desired */
+    height: auto; /* Maintain aspect ratio */
+    padding:10px;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .image-gallery li img:hover {
+    transform: scale(1.2); /* Enlarge on hover (1.2x scale) */
+  }
+
+  nav {
+    color: blanchedalmond; /* Set text color */
+    display: flex; /* Arrange items horizontally */
+    justify-content: center; /* Distribute items evenly */
+    padding: 10px 20px; /* Add some padding */
+  }
+  
+  nav ul {
+    list-style: none; /* Remove default bullet points */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+  }
+  
+  nav li {
+    display: inline-block; /* Display items inline */
+    margin-right: 20px; /* Add spacing between links */
+  }
+  
+  nav li a {
+    text-decoration: none;
+    color: blanchedalmond;
+    
+  }

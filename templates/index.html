@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PoeGuesser</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body> 
+    <h1> You have guessed 30/2323 correctly<h1>
+        <nav>
+            <ul>
+              <li><a href="#">Jewellery</a></li>
+              <li><a href="#">Armours</a></li>
+              <li><a href="#">Weapons</a></li>
+              <li><a href="#">Jewels</a></li>
+            </ul>
+          </nav>
+    <ul class="image-gallery">
+        {% for image_url in image_urls %}
+            <li>
+                <img src="{{ image_url }}" alt="Image">
+            </li>
+        {% endfor %}
+    </ul>
+    
+  </body>
+  </html>
