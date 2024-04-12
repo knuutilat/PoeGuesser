@@ -8,44 +8,44 @@ h1 {
 }
 
 .image-gallery {
-    display: flex; /* Arrange items horizontally */
-    flex-wrap: wrap; /* Allow items to wrap to multiple lines if needed */
-    list-style: none; /* Remove default bullet points */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
+    display: flex; 
+    flex-wrap: wrap; 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
   }
   
   .image-gallery li {
-    margin: 5px; /* Add spacing between images */
+    margin: 5px; 
   }
   
   .image-gallery li img {
-    width: 100px; /* Adjust width as desired */
-    height: auto; /* Maintain aspect ratio */
+    width: 100px; 
+    height: auto; 
     padding:10px;
     transition: transform 0.2s ease-in-out;
   }
 
   .image-gallery li img:hover {
-    transform: scale(1.2); /* Enlarge on hover (1.2x scale) */
+    transform: scale(1.2); 
   }
 
   nav {
-    color: blanchedalmond; /* Set text color */
-    display: flex; /* Arrange items horizontally */
-    justify-content: center; /* Distribute items evenly */
-    padding: 10px 20px; /* Add some padding */
+    color: blanchedalmond; 
+    display: flex; 
+    justify-content: center; 
+    padding: 10px 20px; 
   }
   
   nav ul {
-    list-style: none; /* Remove default bullet points */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
   }
   
   nav li {
-    display: inline-block; /* Display items inline */
-    margin-right: 20px; /* Add spacing between links */
+    display: inline-block; 
+    margin-right: 20px; 
   }
   
   nav li a {
