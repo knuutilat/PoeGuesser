@@ -3,6 +3,7 @@
   <head>
     <title>PoeGuesser</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
   </head>
   <body> 
     <h1> You have guessed 30/2323 correctly<h1>
@@ -15,9 +16,10 @@
             </ul>
           </nav>
     <ul class="image-gallery">
-        {% for image_url in image_urls %}
+        {% for image_url, image_id in zip(image_urls, image_ids) %}
             <li>
-                <img src="{{ image_url }}" alt="Image">
+                <img id="{{ image_id }}"src="{{ image_url }}" alt="Image"> 
+                <input type="text" id="text-input-1" style="display: none;">
             </li>
         {% endfor %}
     </ul>
