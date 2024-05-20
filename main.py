@@ -5,21 +5,25 @@ import csv
 
 app = Flask(__name__)
 
+correct_answers = 0
+answered_correctly = set()
+
 
 @app.route('/', methods=["GET", "POST"])
 def index():
     image_urls = []
     image_ids = []
+    total_items = 0
     with open('temp.csv', 'r') as csvfile:
         csv_reader = csv.reader(csvfile)
         next(csv_reader)
         for row in csv_reader:
             image_urls.append(row[1])
             image_ids.append(row[0])
+            total_items += 1
 
     guess = None
     result = None
-
     if request.method == "POST":
         for key, value in request.form.items():
             if key.startswith("text-input-"):
@@ -28,7 +32,7 @@ def index():
                 result = check_guess(guess, guess_id, "temp.csv")
                 break
 
-    return render_template('index.html', image_urls=image_urls, image_ids=image_ids, zip=zip, guess=guess, result=result)
+    return render_template('index.html', image_urls=image_urls, image_ids=image_ids, zip=zip, guess=guess, result=result, correct_answers=correct_answers, total_items=total_items)
 
 
 def check_guess(guess, guess_id, csv_file):
@@ -43,8 +47,11 @@ def check_guess(guess, guess_id, csv_file):
                 break
 
         if matched_row:
-            if guess.lower() == matched_row[2].lower():
+            if guess.lower() == matched_row[2].lower() and guess_id not in answered_correctly:
                 print("Correct answer")
+                global correct_answers
+                correct_answers += 1
+                answered_correctly.add(guess_id)
             else:
                 print("Wrong answer")
     return False

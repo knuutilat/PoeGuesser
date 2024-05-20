@@ -6,10 +6,8 @@
     <script src="{{ url_for('static', filename='script.js') }}"></script>
   </head>
   <body> 
-    <h1> You have guessed 30/2323 correctly<h1>
-      {% if guess %}
-    <p>Your last guess: {{ guess }}</p>
-  {% endif %}
+    <h1> You have guessed {{correct_answers}}/{{total_items}} correctly<h1>
+
   {% if feedback_message %}
   <p>{{ feedback_message }}</p>
 {% endif %}
