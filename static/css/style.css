@@ -6,6 +6,9 @@ h1 {
     margin:auto;
     text-align: center;
 }
+p {
+  color:white;
+}
 
 .image-gallery {
     display: flex; 
@@ -15,41 +18,48 @@ h1 {
     padding: 0; 
   }
   
-  .image-gallery li {
+.image-gallery li {
     margin: 5px; 
+    width:200px;
   }
   
-  .image-gallery li img {
+.image-gallery li img {
+    object-fit:contain;
     width: 100px; 
-    height: auto; 
+    height: 100px; 
     padding:10px;
     transition: transform 0.2s ease-in-out;
   }
 
-  .image-gallery li img:hover {
+.image-gallery li img:hover {
     transform: scale(1.2); 
   }
 
-  nav {
+ nav {
     color: blanchedalmond; 
     display: flex; 
     justify-content: center; 
     padding: 10px 20px; 
   }
   
-  nav ul {
+nav ul {
     list-style: none; 
     margin: 0; 
     padding: 0; 
   }
   
-  nav li {
+nav li {
     display: inline-block; 
     margin-right: 20px; 
   }
   
-  nav li a {
+nav li a {
     text-decoration: none;
     color: blanchedalmond;
     
   }
+
+.inputbox {
+  background-color:black;
+  color: white;
+}

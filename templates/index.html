@@ -7,6 +7,12 @@
   </head>
   <body> 
     <h1> You have guessed 30/2323 correctly<h1>
+      {% if guess %}
+    <p>Your last guess: {{ guess }}</p>
+  {% endif %}
+  {% if feedback_message %}
+  <p>{{ feedback_message }}</p>
+{% endif %}
         <nav>
             <ul>
               <li><a href="#">Jewellery</a></li>
@@ -19,10 +25,15 @@
         {% for image_url, image_id in zip(image_urls, image_ids) %}
             <li>
                 <img id="{{ image_id }}"src="{{ image_url }}" alt="Image"> 
-                <input type="text" id="text-input-1" style="display: none;">
+                <form method="POST" action="{{ url_for('index')}}" id="form1">
+                <input type="text" class="inputbox" id="text-input-{{ loop.index }}" name="text-input-{{ loop.index }}">
+                <input type="submit" id="bt1">
+                </form>
             </li>
+            {% set row_number = loop.index %}
         {% endfor %}
     </ul>
+    
     
   </body>
   </html>
