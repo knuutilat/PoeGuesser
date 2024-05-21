@@ -63,3 +63,7 @@ nav li a {
   background-color:black;
   color: white;
 }
+
+.image.correct {
+  background-color: green;
+}

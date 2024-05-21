@@ -3,14 +3,22 @@
   <head>
     <title>PoeGuesser</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
   </head>
   <body> 
-    <h1> You have guessed {{correct_answers}}/{{total_items}} correctly<h1>
+    <button id="reset-game">Reset Game</button>
 
-  {% if feedback_message %}
-  <p>{{ feedback_message }}</p>
-{% endif %}
+    <script>
+    document.getElementById('reset-game').addEventListener('click', function () {
+      localStorage.clear();
+      document.querySelectorAll('.image').forEach((image) => {
+        image.classList.remove('correct');
+      });
+      console.log('Game reset, localStorage cleared.');
+    });
+    </script>
+    <h1 id="counter"> You have guessed {{correct_answers}}/{{total_items}} correctly<h1>
+  
+
         <nav>
             <ul>
               <li><a href="#">Jewellery</a></li>
@@ -22,16 +30,18 @@
     <ul class="image-gallery">
         {% for image_url, image_id in zip(image_urls, image_ids) %}
             <li>
-                <img id="{{ image_id }}"src="{{ image_url }}" alt="Image"> 
+              <div class="image-container">
+                <img id="{{ image_id }}"src="{{ image_url }}" alt="Image" class="image" > 
                 <form method="POST" action="{{ url_for('index')}}" id="form1">
-                <input type="text" class="inputbox" id="text-input-{{ loop.index }}" name="text-input-{{ loop.index }}">
+                <input type="text" class="user-input" id="text-input-{{ loop.index }}" name="text-input-{{ loop.index }}">
                 <input type="submit" id="bt1">
                 </form>
+              </div>
             </li>
             {% set row_number = loop.index %}
+          </div>
         {% endfor %}
     </ul>
-    
-    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
   </body>
   </html>
